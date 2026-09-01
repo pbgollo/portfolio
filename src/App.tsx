@@ -1,10 +1,9 @@
-import { Avatar } from './components/Avatar'
+import { BackToTop } from './components/BackToTop'
 import { Header } from './components/Header'
-import { ProfileHeader } from './components/ProfileHeader'
 import { ScrollIndicator } from './components/ScrollIndicator'
-import { SocialLinks } from './components/SocialLinks'
-import { profile } from './data/profile'
+import { navItems } from './data/navigation'
 import { useTheme } from './hooks/useTheme'
+import { getSectionId, sections } from './sections'
 import styles from './App.module.scss'
 
 function App() {
@@ -15,15 +14,32 @@ function App() {
       <Header theme={theme} onToggleTheme={toggleTheme} />
 
       <main className={styles.main}>
-        <section id="contato" className={styles.section}>
-          <div className={styles.sectionContent}>
-            <Avatar src={profile.avatar} alt={profile.name} />
-            <ProfileHeader name={profile.name} title={profile.title} />
-            <SocialLinks links={profile.social} />
-          </div>
+        {navItems.map((item, index) => {
+          const id = getSectionId(item.href)
+          const { component: Section, animateFooter } = sections[id]
+          const isLast = index === navItems.length - 1
+          const nextSection = navItems[index + 1]
 
-          <ScrollIndicator href="#formacao" />
-        </section>
+          return (
+            <section key={id} id={id} className={styles.section}>
+              <div className={styles.sectionContent}>
+                <Section />
+              </div>
+
+              <div
+                className={`${styles.sectionFooter} ${
+                  animateFooter ? styles.emergeFooter : ''
+                }`}
+              >
+                {isLast ? (
+                  <BackToTop />
+                ) : (
+                  <ScrollIndicator href={nextSection.href} />
+                )}
+              </div>
+            </section>
+          )
+        })}
       </main>
     </div>
   )

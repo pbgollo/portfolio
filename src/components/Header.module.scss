@@ -1,9 +1,12 @@
+@use '../styles/animations';
+
 .header {
   position: fixed;
   inset: 0 0 auto;
   z-index: 50;
   width: 100%;
   background-color: var(--color-bg);
+  @include animations.fade-in-on-load(0s);
 }
 
 .inner {

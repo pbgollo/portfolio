@@ -1,0 +1,13 @@
+@use '../styles/animations';
+
+.emergeAvatar {
+  @include animations.emerge-on-load(0.15s);
+}
+
+.emergeProfile {
+  @include animations.emerge-on-load(0.3s);
+}
+
+.emergeSocial {
+  @include animations.emerge-on-load(0.45s);
+}

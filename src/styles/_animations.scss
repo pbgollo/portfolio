@@ -1,0 +1,41 @@
+@keyframes emerge {
+  from {
+    opacity: 0;
+    transform: translateY(1.25rem);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@mixin emerge-on-load($delay: 0s) {
+  opacity: 0;
+  animation: emerge 0.7s cubic-bezier(0.22, 1, 0.36, 1) $delay forwards;
+
+  @media (prefers-reduced-motion: reduce) {
+    opacity: 1;
+    animation: none;
+  }
+}
+
+@mixin fade-in-on-load($delay: 0s) {
+  opacity: 0;
+  animation: fade-in 0.6s ease $delay forwards;
+
+  @media (prefers-reduced-motion: reduce) {
+    opacity: 1;
+    animation: none;
+  }
+}

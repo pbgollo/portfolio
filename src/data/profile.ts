@@ -6,10 +6,20 @@ export type SocialLink = {
   icon: SocialIcon
 }
 
+export type PersonalInfo = {
+  key: string
+  value: string | string[]
+}
+
 export const profile = {
   name: 'Pedro Gollo',
   title: 'Software Developer',
   avatar: '/avatar.png',
+  personal: [
+    { key: 'born', value: '13/11/02' },
+    { key: 'loc', value: 'Coimbra' },
+    { key: 'lang', value: ['PT', 'EN'] },
+  ] satisfies PersonalInfo[],
   social: [
     {
       label: 'GitHub',
