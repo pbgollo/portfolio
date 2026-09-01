@@ -1,3 +1,4 @@
+import { SkillsMarquee } from '../components/SkillsMarquee'
 import { about } from '../data/about'
 import styles from './AboutSection.module.scss'
 
@@ -10,6 +11,15 @@ export function AboutSection() {
       </h2>
 
       <p className={styles.text}>{about.text}</p>
+
+      <div className={styles.skills}>
+        <h3 className={styles.skillsTitle}>
+          <span className={styles.tag}>// </span>
+          Skills
+        </h3>
+
+        <SkillsMarquee />
+      </div>
     </article>
   )
 }

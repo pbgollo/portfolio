@@ -2,7 +2,8 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  max-width: 32rem;
+  width: 100%;
+  max-width: 56rem;
   text-align: center;
 }
 
@@ -20,8 +21,21 @@
 
 .text {
   margin: 0;
+  max-width: 32rem;
   font-size: 1rem;
   font-weight: 400;
   line-height: 1.75;
   color: var(--color-text-muted);
+}
+
+.skills {
+  width: 100%;
+  margin-top: 3.5rem;
+}
+
+.skillsTitle {
+  margin: 0 0 1.5rem;
+  font-size: 1.125rem;
+  font-weight: 700;
+  line-height: 1.3;
 }
