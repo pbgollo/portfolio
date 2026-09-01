@@ -7,11 +7,10 @@ import { ProjectsSection } from './ProjectsSection'
 
 export type SectionConfig = {
   component: ComponentType
-  animateFooter?: boolean
 }
 
 export const sections: Record<string, SectionConfig> = {
-  contato: { component: ContactSection, animateFooter: true },
+  contato: { component: ContactSection },
   'sobre-mim': { component: AboutSection },
   formacao: { component: EducationSection },
   profissional: { component: ProfessionalSection },

@@ -1,6 +1,6 @@
 @use '../styles/timeline';
 
-.education {
+.professional {
   @include timeline.timeline-section;
 }
 
@@ -24,11 +24,11 @@
   @include timeline.timeline-period;
 }
 
-.degree {
+.role {
   @include timeline.timeline-heading;
 }
 
-.institution {
+.company {
   @include timeline.timeline-subheading;
 }
 
@@ -38,4 +38,8 @@
 
 .location {
   @include timeline.timeline-location;
+}
+
+.highlights {
+  @include timeline.timeline-highlights;
 }

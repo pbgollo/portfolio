@@ -19,6 +19,12 @@
   }
 }
 
+.linkActive {
+  color: var(--color-text);
+  text-decoration: underline;
+  text-underline-offset: 0.35em;
+}
+
 @media (max-width: 640px) {
   .list {
     gap: 1rem;

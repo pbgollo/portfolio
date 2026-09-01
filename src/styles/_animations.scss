@@ -22,7 +22,7 @@
 
 @mixin emerge-on-load($delay: 0s) {
   opacity: 0;
-  animation: emerge 0.7s cubic-bezier(0.22, 1, 0.36, 1) $delay forwards;
+  animation: emerge 1.2s cubic-bezier(0.22, 1, 0.36, 1) $delay forwards;
 
   @media (prefers-reduced-motion: reduce) {
     opacity: 1;
@@ -36,6 +36,24 @@
 
   @media (prefers-reduced-motion: reduce) {
     opacity: 1;
+    animation: none;
+  }
+}
+
+@mixin emerge-hidden {
+  opacity: 0;
+  transform: translateY(1.25rem);
+
+  @media (prefers-reduced-motion: reduce) {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@mixin emerge-visible {
+  animation: emerge 1.2s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+
+  @media (prefers-reduced-motion: reduce) {
     animation: none;
   }
 }

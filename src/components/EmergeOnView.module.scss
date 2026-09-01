@@ -1,0 +1,9 @@
+@use '../styles/animations';
+
+.emerge {
+  @include animations.emerge-hidden;
+}
+
+.visible {
+  @include animations.emerge-visible;
+}
