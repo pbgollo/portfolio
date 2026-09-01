@@ -30,7 +30,9 @@
 
 .skills {
   width: 100%;
+  max-width: 100vw;
   margin-top: 3.5rem;
+  overflow: hidden;
 }
 
 .skillsTitle {
@@ -38,4 +40,11 @@
   font-size: 1.125rem;
   font-weight: 700;
   line-height: 1.3;
+}
+
+@media (max-width: 768px) {
+  .text {
+    font-size: 0.875rem;
+    line-height: 1.6;
+  }
 }

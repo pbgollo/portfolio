@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import type { PersonalInfo } from '../data/profile'
 import { useLocale } from '../hooks/useLocale'
 import styles from './Avatar.module.scss'
@@ -46,16 +47,24 @@ function personalSummary(personal: PersonalInfo[]) {
 
 export function Avatar({ src, alt, personal }: AvatarProps) {
   const { t } = useLocale()
+  const [isFlipped, setIsFlipped] = useState(false)
+
   return (
-    <div className={styles.wrapper}>
-      <div className={styles.coin}>
+    <button
+      type="button"
+      className={styles.wrapper}
+      onClick={() => setIsFlipped((current) => !current)}
+      aria-pressed={isFlipped}
+      aria-label={t.avatarToggleAria}
+    >
+      <div className={`${styles.coin} ${isFlipped ? styles.flipped : ''}`}>
         <div className={styles.front}>
           <img className={styles.image} src={src} alt={alt} />
         </div>
 
         <div
           className={styles.back}
-          aria-label={`${t.personalAria}: ${personalSummary(personal)}`}
+          aria-hidden="true"
         >
           <pre className={styles.jsonBlock}>
             <code className={styles.json}>
@@ -82,6 +91,9 @@ export function Avatar({ src, alt, personal }: AvatarProps) {
           </pre>
         </div>
       </div>
-    </div>
+      <span className={styles.srOnly}>
+        {t.personalAria}: {personalSummary(personal)}
+      </span>
+    </button>
   )
 }

@@ -19,6 +19,7 @@ type Dictionary = {
   projectsTitle: string
   personalAria: string
   socialAria: string
+  avatarToggleAria: string
 }
 
 export const translations: Record<Locale, Dictionary> = {
@@ -46,6 +47,7 @@ export const translations: Record<Locale, Dictionary> = {
     projectsTitle: 'Projetos',
     personalAria: 'Informações pessoais',
     socialAria: 'Redes sociais',
+    avatarToggleAria: 'Alternar informações pessoais',
   },
   en: {
     nav: {
@@ -71,5 +73,6 @@ export const translations: Record<Locale, Dictionary> = {
     projectsTitle: 'Projects',
     personalAria: 'Personal information',
     socialAria: 'Social links',
+    avatarToggleAria: 'Toggle personal information',
   },
 }

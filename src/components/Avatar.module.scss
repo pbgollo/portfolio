@@ -2,7 +2,12 @@
   width: 14rem;
   height: 14rem;
   flex-shrink: 0;
+  padding: 0;
+  border: none;
+  background: none;
   perspective: 1000px;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
 }
 
 .coin {
@@ -13,17 +18,35 @@
   transform-style: preserve-3d;
   transition: transform 0.7s ease;
 
-  .wrapper:hover & {
-    transform: rotateY(180deg);
+  @media (hover: hover) and (pointer: fine) {
+    .wrapper:hover & {
+      transform: rotateY(180deg);
+    }
   }
 
   @media (prefers-reduced-motion: reduce) {
     transition: none;
-
-    .wrapper:hover & {
-      transform: none;
-    }
   }
+}
+
+.flipped {
+  transform: rotateY(180deg);
+
+  @media (prefers-reduced-motion: reduce) {
+    transform: none;
+  }
+}
+
+.srOnly {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
 }
 
 .front,

@@ -6,11 +6,7 @@
       (function () {
         var stored = localStorage.getItem('theme')
         var theme =
-          stored === 'light' || stored === 'dark'
-            ? stored
-            : window.matchMedia('(prefers-color-scheme: dark)').matches
-              ? 'dark'
-              : 'light'
+          stored === 'light' || stored === 'dark' ? stored : 'dark'
 
         if (theme === 'dark') {
           document.documentElement.classList.add('dark')
@@ -33,13 +29,13 @@
     </script>
     <style>
       html {
-        background-color: #ffffff;
-        color: #171717;
-      }
-
-      html.dark {
         background-color: #000000;
         color: #fafafa;
+      }
+
+      html:not(.dark) {
+        background-color: #ffffff;
+        color: #171717;
       }
     </style>
     <link rel="icon" type="image/svg+xml" href="%BASE_URL%favicon.svg" />
