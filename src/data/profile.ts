@@ -1,3 +1,5 @@
+import { assetUrl } from '../utils/assetUrl'
+
 export type SocialIcon = 'github' | 'linkedin' | 'instagram' | 'email'
 
 export type SocialLink = {
@@ -14,7 +16,7 @@ export type PersonalInfo = {
 export const profile = {
   name: 'Pedro Gollo',
   title: 'Software Developer',
-  avatar: '/avatar.png',
+  avatar: assetUrl('avatar.png'),
   personal: [
     { key: 'born', value: '13/11/02' },
     { key: 'loc', value: 'Coimbra' },
