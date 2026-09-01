@@ -1,5 +1,6 @@
 import type { ReactElement } from 'react'
 import type { SocialIcon, SocialLink } from '../data/profile'
+import { useLocale } from '../hooks/useLocale'
 import styles from './SocialLinks.module.scss'
 
 type IconProps = {
@@ -99,8 +100,10 @@ type SocialLinksProps = {
 }
 
 export function SocialLinks({ links }: SocialLinksProps) {
+  const { t } = useLocale()
+
   return (
-    <nav className={styles.nav} aria-label="Redes sociais">
+    <nav className={styles.nav} aria-label={t.socialAria}>
       <ul className={styles.list}>
         {links.map((link) => {
           const Icon = iconMap[link.icon]

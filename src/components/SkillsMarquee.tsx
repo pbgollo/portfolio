@@ -1,4 +1,5 @@
 import { stacks } from '../data/stacks'
+import { useLocale } from '../hooks/useLocale'
 import styles from './SkillsMarquee.module.scss'
 
 function StackRow({ hidden }: { hidden?: boolean }) {
@@ -21,8 +22,10 @@ function StackRow({ hidden }: { hidden?: boolean }) {
 }
 
 export function SkillsMarquee() {
+  const { t } = useLocale()
+
   return (
-    <div className={styles.marquee} aria-label="Principais stacks">
+    <div className={styles.marquee} aria-label={t.skillsAria}>
       <div className={styles.track}>
         <StackRow />
         <StackRow hidden />

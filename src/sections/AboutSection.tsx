@@ -1,21 +1,23 @@
 import { SkillsMarquee } from '../components/SkillsMarquee'
-import { about } from '../data/about'
+import { useLocale } from '../hooks/useLocale'
 import styles from './AboutSection.module.scss'
 
 export function AboutSection() {
+  const { t } = useLocale()
+
   return (
     <article className={styles.about}>
       <h2 className={styles.title}>
         <span className={styles.tag}>// </span>
-        {about.title}
+        {t.aboutTitle}
       </h2>
 
-      <p className={styles.text}>{about.text}</p>
+      <p className={styles.text}>{t.aboutText}</p>
 
       <div className={styles.skills}>
         <h3 className={styles.skillsTitle}>
           <span className={styles.tag}>// </span>
-          Skills
+          {t.skills}
         </h3>
 
         <SkillsMarquee />

@@ -16,6 +16,10 @@
           document.documentElement.classList.add('dark')
         }
 
+        var storedLocale = localStorage.getItem('locale')
+        document.documentElement.lang =
+          storedLocale === 'en' ? 'en' : 'pt-BR'
+
         if ('scrollRestoration' in history) {
           history.scrollRestoration = 'manual'
         }

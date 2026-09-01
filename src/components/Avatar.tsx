@@ -1,4 +1,5 @@
 import type { PersonalInfo } from '../data/profile'
+import { useLocale } from '../hooks/useLocale'
 import styles from './Avatar.module.scss'
 
 type AvatarProps = {
@@ -44,6 +45,7 @@ function personalSummary(personal: PersonalInfo[]) {
 }
 
 export function Avatar({ src, alt, personal }: AvatarProps) {
+  const { t } = useLocale()
   return (
     <div className={styles.wrapper}>
       <div className={styles.coin}>
@@ -53,7 +55,7 @@ export function Avatar({ src, alt, personal }: AvatarProps) {
 
         <div
           className={styles.back}
-          aria-label={`Informações pessoais: ${personalSummary(personal)}`}
+          aria-label={`${t.personalAria}: ${personalSummary(personal)}`}
         >
           <pre className={styles.jsonBlock}>
             <code className={styles.json}>

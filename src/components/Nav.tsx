@@ -1,4 +1,5 @@
 import { navItems } from '../data/navigation'
+import { useLocale } from '../hooks/useLocale'
 import { getSectionId } from '../sections'
 import styles from './Nav.module.scss'
 
@@ -7,8 +8,10 @@ type NavProps = {
 }
 
 export function Nav({ activeSection }: NavProps) {
+  const { t } = useLocale()
+
   return (
-    <nav className={styles.nav} aria-label="Navegação principal">
+    <nav className={styles.nav} aria-label={t.navAria}>
       <ul className={styles.list}>
         {navItems.map((item) => {
           const id = getSectionId(item.href)
@@ -21,7 +24,7 @@ export function Nav({ activeSection }: NavProps) {
                 href={item.href}
                 aria-current={isActive ? 'page' : undefined}
               >
-                {item.label}
+                {t.nav[item.id]}
               </a>
             </li>
           )

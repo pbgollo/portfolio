@@ -1,12 +1,16 @@
 import { projects } from '../data/projects'
+import { useLocale } from '../hooks/useLocale'
+import { pick } from '../i18n/locale'
 import styles from './ProjectsSection.module.scss'
 
 export function ProjectsSection() {
+  const { locale, t } = useLocale()
+
   return (
     <div className={styles.projects}>
       <h2 className={styles.title}>
         <span className={styles.tag}>// </span>
-        Projetos
+        {t.projectsTitle}
       </h2>
 
       <ul className={styles.grid}>
@@ -32,7 +36,9 @@ export function ProjectsSection() {
             <div className={styles.body}>
               <h3 className={styles.name}>{project.title}</h3>
               <span className={styles.year}>{project.year}</span>
-              <p className={styles.description}>{project.description}</p>
+              <p className={styles.description}>
+                {pick(project.description, locale)}
+              </p>
               <p className={styles.stacks}>{project.stacks.join(' · ')}</p>
             </div>
           )

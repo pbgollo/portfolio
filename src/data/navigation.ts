@@ -1,12 +1,12 @@
 export type NavItem = {
-  label: string
+  id: 'contato' | 'sobre-mim' | 'formacao' | 'profissional' | 'projetos'
   href: string
 }
 
 export const navItems = [
-  { label: 'Contato', href: '#contato' },
-  { label: 'Sobre mim', href: '#sobre-mim' },
-  { label: 'Formação', href: '#formacao' },
-  { label: 'Profissional', href: '#profissional' },
-  { label: 'Projetos', href: '#projetos' },
+  { id: 'contato', href: '#contato' },
+  { id: 'sobre-mim', href: '#sobre-mim' },
+  { id: 'formacao', href: '#formacao' },
+  { id: 'profissional', href: '#profissional' },
+  { id: 'projetos', href: '#projetos' },
 ] satisfies NavItem[]

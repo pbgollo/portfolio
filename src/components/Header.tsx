@@ -1,6 +1,7 @@
-import type { Theme } from '../hooks/useTheme'
+import { LanguageToggle } from './LanguageToggle'
 import { Nav } from './Nav'
 import { ThemeToggle } from './ThemeToggle'
+import type { Theme } from '../hooks/useTheme'
 import styles from './Header.module.scss'
 
 type HeaderProps = {
@@ -18,6 +19,7 @@ export function Header({ theme, activeSection, onToggleTheme }: HeaderProps) {
         </div>
 
         <div className={styles.actions}>
+          <LanguageToggle />
           <ThemeToggle theme={theme} onToggle={onToggleTheme} />
         </div>
       </div>

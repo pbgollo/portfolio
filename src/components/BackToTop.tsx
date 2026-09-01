@@ -1,3 +1,4 @@
+import { useLocale } from '../hooks/useLocale'
 import styles from './BackToTop.module.scss'
 
 type BackToTopProps = {
@@ -5,9 +6,11 @@ type BackToTopProps = {
 }
 
 export function BackToTop({ href = '#contato' }: BackToTopProps) {
+  const { t } = useLocale()
+
   return (
     <a className={styles.button} href={href}>
-      Voltar ao início
+      {t.backToTop}
     </a>
   )
 }
