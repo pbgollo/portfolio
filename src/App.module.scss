@@ -1,0 +1,28 @@
+.app {
+  color: var(--color-text);
+  background-color: var(--color-bg);
+}
+
+.main {
+  display: flex;
+  flex-direction: column;
+}
+
+.section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100vh;
+  min-height: 100vh;
+  padding: 4rem 1.5rem 1.5rem;
+}
+
+.sectionContent {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  width: 100%;
+}

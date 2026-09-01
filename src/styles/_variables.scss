@@ -1,0 +1,66 @@
+@property --color-bg {
+  syntax: '<color>';
+  inherits: true;
+  initial-value: #ffffff;
+}
+
+@property --color-text {
+  syntax: '<color>';
+  inherits: true;
+  initial-value: #171717;
+}
+
+@property --color-text-muted {
+  syntax: '<color>';
+  inherits: true;
+  initial-value: #737373;
+}
+
+@property --color-toggle {
+  syntax: '<color>';
+  inherits: true;
+  initial-value: #525252;
+}
+
+@property --color-toggle-hover-bg {
+  syntax: '<color>';
+  inherits: true;
+  initial-value: #f5f5f5;
+}
+
+@property --color-toggle-hover-text {
+  syntax: '<color>';
+  inherits: true;
+  initial-value: #171717;
+}
+
+// Cores e tokens — mudam com a classe .dark no <html>
+:root {
+  --color-bg: #ffffff;
+  --color-text: #171717;
+  --color-text-muted: #737373;
+  --color-toggle: #525252;
+  --color-toggle-hover-bg: #f5f5f5;
+  --color-toggle-hover-text: #171717;
+
+  --font-main: 'Source Code Pro', ui-monospace, monospace;
+}
+
+html {
+  transition:
+    --color-bg 0.5s ease,
+    --color-text 0.5s ease,
+    --color-text-muted 0.5s ease,
+    --color-toggle 0.5s ease,
+    --color-toggle-hover-bg 0.5s ease,
+    --color-toggle-hover-text 0.5s ease;
+}
+
+html.dark {
+  --color-bg: #000000;
+  --color-text: #fafafa;
+  --color-text-muted: #a3a3a3;
+  --color-toggle: #a3a3a3;
+  --color-toggle-hover-bg: #262626;
+  --color-toggle-hover-text: #fafafa;
+}

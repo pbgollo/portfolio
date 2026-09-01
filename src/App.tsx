@@ -1,13 +1,31 @@
+import { Avatar } from './components/Avatar'
+import { Header } from './components/Header'
+import { ProfileHeader } from './components/ProfileHeader'
+import { ScrollIndicator } from './components/ScrollIndicator'
+import { SocialLinks } from './components/SocialLinks'
+import { profile } from './data/profile'
+import { useTheme } from './hooks/useTheme'
+import styles from './App.module.scss'
+
 function App() {
+  const { theme, toggleTheme } = useTheme()
+
   return (
-    <main className="min-h-screen bg-neutral-950 text-neutral-100">
-      <div className="mx-auto max-w-4xl px-6 py-16">
-        <h1 className="text-4xl font-bold tracking-tight">Portfolio</h1>
-        <p className="mt-4 text-neutral-400">
-          Seu portfólio começa aqui.
-        </p>
-      </div>
-    </main>
+    <div className={styles.app}>
+      <Header theme={theme} onToggleTheme={toggleTheme} />
+
+      <main className={styles.main}>
+        <section id="contato" className={styles.section}>
+          <div className={styles.sectionContent}>
+            <Avatar src={profile.avatar} alt={profile.name} />
+            <ProfileHeader name={profile.name} title={profile.title} />
+            <SocialLinks links={profile.social} />
+          </div>
+
+          <ScrollIndicator href="#formacao" />
+        </section>
+      </main>
+    </div>
   )
 }
 
