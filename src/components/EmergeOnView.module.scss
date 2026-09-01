@@ -7,3 +7,7 @@
 .visible {
   @include animations.emerge-visible;
 }
+
+.settled {
+  transform: none;
+}

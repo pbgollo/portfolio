@@ -44,27 +44,3 @@
   padding-top: 2rem;
   padding-bottom: 0.5rem;
 }
-
-@media (max-width: 768px) {
-  .section {
-    padding-bottom: 1rem;
-  }
-
-  .sectionInner {
-    flex: 1;
-    min-height: 0;
-    justify-content: flex-start;
-  }
-
-  .sectionContent {
-    flex: 0 1 auto;
-    justify-content: flex-start;
-  }
-
-  .sectionFooter {
-    flex: 0 0 auto;
-    margin-top: 2rem;
-    padding-top: 0;
-    padding-bottom: 0;
-  }
-}

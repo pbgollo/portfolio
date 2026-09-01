@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState, type ReactNode } from 'react'
+import { useEffect, useRef, useState, type AnimationEvent, type ReactNode } from 'react'
 import styles from './EmergeOnView.module.scss'
 
 type EmergeOnViewProps = {
@@ -9,6 +9,7 @@ type EmergeOnViewProps = {
 export function EmergeOnView({ children, className }: EmergeOnViewProps) {
   const ref = useRef<HTMLDivElement>(null)
   const [visible, setVisible] = useState(false)
+  const [settled, setSettled] = useState(false)
 
   useEffect(() => {
     const element = ref.current
@@ -16,6 +17,7 @@ export function EmergeOnView({ children, className }: EmergeOnViewProps) {
 
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
       setVisible(true)
+      setSettled(true)
       return
     }
 
@@ -36,10 +38,16 @@ export function EmergeOnView({ children, className }: EmergeOnViewProps) {
     return () => observer.disconnect()
   }, [])
 
+  const handleAnimationEnd = (event: AnimationEvent<HTMLDivElement>) => {
+    if (event.target !== ref.current || event.animationName !== 'emerge') return
+    setSettled(true)
+  }
+
   return (
     <div
       ref={ref}
-      className={`${styles.emerge} ${visible ? styles.visible : ''} ${className ?? ''}`}
+      className={`${styles.emerge} ${visible ? styles.visible : ''} ${settled ? styles.settled : ''} ${className ?? ''}`}
+      onAnimationEnd={handleAnimationEnd}
     >
       {children}
     </div>

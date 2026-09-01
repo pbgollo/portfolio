@@ -1,11 +1,15 @@
 .marquee {
   position: relative;
   width: 100%;
+}
+
+.viewport {
+  position: relative;
   overflow: hidden;
 }
 
-.marquee::before,
-.marquee::after {
+.viewport::before,
+.viewport::after {
   content: '';
   position: absolute;
   top: 0;
@@ -15,21 +19,21 @@
   pointer-events: none;
 }
 
-.marquee::before {
+.viewport::before {
   left: 0;
   background: linear-gradient(to right, var(--color-bg), transparent);
 }
 
-.marquee::after {
+.viewport::after {
   right: 0;
   background: linear-gradient(to left, var(--color-bg), transparent);
 }
 
 .track {
-  display: flex;
+  display: inline-flex;
   width: max-content;
-  will-change: transform;
   animation: marquee 32s linear infinite;
+  -webkit-animation: marquee 32s linear infinite;
 
   @media (prefers-reduced-motion: reduce) {
     animation: none;
@@ -37,7 +41,7 @@
 }
 
 .row {
-  display: flex;
+  display: inline-flex;
   flex-shrink: 0;
   align-items: center;
   gap: 2.5rem;
@@ -58,13 +62,12 @@
   display: block;
   width: 2.5rem;
   height: 2.5rem;
-  background-color: var(--color-text);
-  mask-size: contain;
-  mask-repeat: no-repeat;
-  mask-position: center;
-  -webkit-mask-size: contain;
-  -webkit-mask-repeat: no-repeat;
-  -webkit-mask-position: center;
+  object-fit: contain;
+  filter: brightness(0);
+}
+
+:global(html.dark) .logo {
+  filter: brightness(0) invert(1);
 }
 
 .label {
